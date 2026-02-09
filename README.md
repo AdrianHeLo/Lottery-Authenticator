@@ -23,10 +23,15 @@ Lottery Authenticator genera números de lotería ramdom, código en Kotlin, con
 
 ## 📌 Mejoras futuras
 - Implementación de Data Binding y Live Data.
-- Sustituir ROOM por Firebase Databse.
+- Barra de progreso circular.
+- Animación cuando se regeneran números.
+- Diferentes periodos (15s / 30s / 60s).
 - Navigation Drawer & Tab Layaout.
+- Sustituir ROOM por Firebase Databse.
 
 ## 📷 Capturas de pantalla
+<img src="https://drive.google.com/drive/u/0/folders/1wRzkHbfQJvP3FV45pTZaam_NYkbXc3Nx"></img>
+
 
 ## 👤 Autor
 Adrián Hernández López / 
