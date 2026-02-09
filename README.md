@@ -1,0 +1,33 @@
+# Lottery Authenticator
+Proyecto Android creada con Kotlin y uno de los mejores ejemplos para implementar Data Binding. Registro de contactos con nombre y un email.
+
+## 🎯 Objetivo del proyecto
+- Genere números de lotería (ej. 6 números aleatorios)
+- Permita diferentes tipos de lotería (6/49, 5/50, etc.)
+- Sea offline
+- Tenga arquitectura clara (inspirada en Google Authenticator)
+- Use Kotlin + MVVM
+- Sea fácil de mantener y extender
+
+## 🚀 Características
+- Interfaz de usuario limpia e intuitiva.
+- Desarrollada con Kotlin.
+- ROOM Database
+- Sigue las mejores prácticas de Android.
+
+## 🛠️ Tecnología utilizada
+- Android SDK
+- Kotlin
+- Gradle
+- ROOM
+
+## 📌 Mejoras futuras
+- Implementación de Data Binding y Live Data.
+- Sustituir ROOM por Firebase Databse.
+- Navigation Drawer & Tab Layaout.
+
+## 📷 Capturas de pantalla
+
+## 👤 Autor
+Adrián Hernández López / 
+Desarrollador Android
