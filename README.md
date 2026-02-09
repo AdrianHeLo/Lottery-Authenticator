@@ -1,5 +1,5 @@
 # Lottery Authenticator
-Proyecto Android creada con Kotlin y uno de los mejores ejemplos para implementar Data Binding. Registro de contactos con nombre y un email.
+Lottery Authenticator genera números de lotería ramdom, código en Kotlin, con buenas prácticas. Se uso la filosofía de Google Authenticator como referencia es una excelente idea porque su estructura es simple, segura, desacoplada y muy limpia.
 
 ## 🎯 Objetivo del proyecto
 - Genere números de lotería (ej. 6 números aleatorios)
