@@ -3,12 +3,10 @@ package com.adrianhelo.lotteryauthenticator.ui.main
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.adrianhelo.lotteryauthenticator.R
 import com.adrianhelo.lotteryauthenticator.data.local.AppDatabase
 import com.adrianhelo.lotteryauthenticator.data.local.LotteryEntity

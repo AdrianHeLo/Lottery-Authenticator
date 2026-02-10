@@ -8,7 +8,7 @@
     <data>
         <variable
             name="lotteryVM"
-            type="com.adrianhelo.lotteryauthenticator.ui.main.MainViewModel" />
+            type="com.adrianhelo.lotteryauthenticator.ui.main.MainViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
