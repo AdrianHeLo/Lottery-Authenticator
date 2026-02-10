@@ -6,7 +6,7 @@ Lottery Authenticator genera números de lotería ramdom, código en Kotlin, con
 - Permita diferentes tipos de lotería (6/49, 5/50, etc.)
 - Sea offline
 - Tenga arquitectura clara (inspirada en Google Authenticator)
-- Use Kotlin + MVVM
+- Kotlin + MVVM
 - Sea fácil de mantener y extender
 
 ## 🚀 Características
