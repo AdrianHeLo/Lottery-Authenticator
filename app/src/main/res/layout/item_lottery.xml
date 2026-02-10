@@ -6,7 +6,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/container_card_view"
@@ -15,8 +15,7 @@
             app:cardElevation="10dp"
             app:cardCornerRadius="10dp"
             android:backgroundTint="@color/blue_boston"
-            android:layout_margin="10dp"
-            tools:ignore="MissingConstraints">
+            android:layout_margin="14dp">
 
             <LinearLayout
                 android:id="@+id/lottery_info_text"
@@ -24,7 +23,6 @@
                 android:padding="12dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent">
 
