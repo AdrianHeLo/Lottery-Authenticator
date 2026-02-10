@@ -1,50 +1,41 @@
 package com.adrianhelo.lotteryauthenticator.ui.main
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.adrianhelo.lotteryauthenticator.R
 import com.adrianhelo.lotteryauthenticator.data.local.LotteryEntity
+import com.adrianhelo.lotteryauthenticator.databinding.ItemLotteryBinding
 import com.adrianhelo.lotteryauthenticator.utils.CountdownTimer
 
-class LotteryAdapter(private val onGenerate: (LotteryEntity) -> Unit): ListAdapter<LotteryEntity, LotteryAdapter.ViewHolder>(Diff()){
+class LotteryAdapter(private val itemList: List<LotteryEntity>,
+                     private val clickListener: (LotteryEntity)-> Unit): RecyclerView.Adapter<LotteryAdapter.LotteryViewHolder>(){
 
-        inner class ViewHolder(v: View): RecyclerView.ViewHolder(v){
-
-            val name: TextView
-            val numbers: TextView
-            val timer: TextView
-
-            init {
-                name = v.findViewById(R.id.name)
-                numbers = v.findViewById(R.id.numbers)
-                timer  = v.findViewById(R.id.timer)
+        inner class LotteryViewHolder(private val itemLotteryBinding: ItemLotteryBinding): RecyclerView.ViewHolder(itemLotteryBinding.root){
+            fun bind(lottery: LotteryEntity, clickListener: (LotteryEntity) -> Unit){
+                itemLotteryBinding.name.text = lottery.name
+                itemLotteryBinding.numbers.text = lottery.currentsNumbers
+                itemLotteryBinding.timer.text = lottery.intervalSeconds.toString()
+                itemLotteryBinding.lotteryInfoText.setOnClickListener {
+                    clickListener(lottery)
+                }
             }
         }
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            val view = LayoutInflater.from(parent.context).inflate(R.layout.item_lottery, parent,false)
-            return ViewHolder(view)
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LotteryViewHolder {
+            val inflater = LayoutInflater.from(parent.context)
+            val bindingInflater: ItemLotteryBinding = DataBindingUtil.inflate(inflater, R.layout.item_lottery, parent, false)
+            return LotteryViewHolder(bindingInflater)
         }
 
-        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            val item = getItem(position)
-            holder.name.text = item.name
-            holder.numbers.text = item.currentsNumbers
-            val countdown = CountdownTimer(
-                item.intervalSeconds,
-                {holder.timer.text = "${it}s"},
-                {onGenerate(item)}
-            )
-            countdown.start()
+        override fun getItemCount(): Int {
+            return itemList.size
         }
 
-        class Diff : DiffUtil.ItemCallback<LotteryEntity>() {
-                override fun areItemsTheSame(a: LotteryEntity, b: LotteryEntity) = a.id == b.id
-                override fun areContentsTheSame(a: LotteryEntity, b: LotteryEntity) = a == b
-            }
+        override fun onBindViewHolder(holder: LotteryViewHolder, position: Int) {
+            holder.bind(itemList[position], clickListener)
+        }
 }

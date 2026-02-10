@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [LotteryEntity::class], version = 1)
+@Database(entities = [LotteryEntity::class], version = 2)
 abstract class AppDatabase: RoomDatabase() {
 
     abstract fun getLotteryDao(): LotteryDao
@@ -13,13 +13,18 @@ abstract class AppDatabase: RoomDatabase() {
     companion object{
         @Volatile private var INSTANCE: AppDatabase? = null
 
-        fun get(context: Context): AppDatabase =
-            INSTANCE ?: synchronized(this) {
-                INSTANCE ?: Room.databaseBuilder(
-                    context.applicationContext,
-                    AppDatabase::class.java,
-                    name = "lottery.db"
-                ).build().also { INSTANCE = it }
+        fun getInstance(context: Context): AppDatabase{
+            synchronized(this){
+                var instance = INSTANCE
+                if (instance == null){
+                    instance = Room.databaseBuilder(
+                        context.applicationContext,
+                        AppDatabase::class.java,
+                        "lottery_db").build()
+                }
+                INSTANCE = instance
+                return instance
             }
+        }
     }
 }
