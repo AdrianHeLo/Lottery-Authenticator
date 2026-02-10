@@ -14,11 +14,13 @@ import com.adrianhelo.lotteryauthenticator.data.local.AppDatabase
 import com.adrianhelo.lotteryauthenticator.data.local.LotteryEntity
 import com.adrianhelo.lotteryauthenticator.domain.generator.LotteryGenerator
 import com.adrianhelo.lotteryauthenticator.domain.repository.LotteryRepository
+import com.adrianhelo.lotteryauthenticator.utils.CountdownTimer
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class MainViewModel(private val lotteryRepository: LotteryRepository): ViewModel(), Observable {
 
+    private val timers = mutableMapOf<Long, CountdownTimer>()
     val lotteries = lotteryRepository.getLotteries
 
     @Bindable

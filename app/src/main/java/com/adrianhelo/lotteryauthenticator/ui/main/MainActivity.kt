@@ -12,7 +12,6 @@ import com.adrianhelo.lotteryauthenticator.data.local.AppDatabase
 import com.adrianhelo.lotteryauthenticator.data.local.LotteryEntity
 import com.adrianhelo.lotteryauthenticator.databinding.ActivityMainBinding
 import com.adrianhelo.lotteryauthenticator.domain.LotteryFactory
-import com.adrianhelo.lotteryauthenticator.domain.generator.LotteryGenerator
 import com.adrianhelo.lotteryauthenticator.domain.repository.LotteryRepository
 
 class MainActivity : AppCompatActivity() {
